@@ -1,0 +1,15 @@
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\bin\Debug\net6.0\RPGConsoleGame.exe
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\bin\Debug\net6.0\RPGConsoleGame.deps.json
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\bin\Debug\net6.0\RPGConsoleGame.runtimeconfig.json
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\bin\Debug\net6.0\RPGConsoleGame.dll
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\bin\Debug\net6.0\RPGConsoleGame.pdb
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\obj\Debug\net6.0\RPGConsoleGame.csproj.AssemblyReference.cache
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\obj\Debug\net6.0\RPGConsoleGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\obj\Debug\net6.0\RPGConsoleGame.AssemblyInfoInputs.cache
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\obj\Debug\net6.0\RPGConsoleGame.AssemblyInfo.cs
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\obj\Debug\net6.0\RPGConsoleGame.csproj.CoreCompileInputs.cache
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\obj\Debug\net6.0\RPGConsoleGame.dll
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\obj\Debug\net6.0\refint\RPGConsoleGame.dll
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\obj\Debug\net6.0\RPGConsoleGame.pdb
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\obj\Debug\net6.0\RPGConsoleGame.genruntimeconfig.cache
+C:\Users\Tommy Waalkes\Desktop\RPGConsoleGame\RPGConsoleGame\obj\Debug\net6.0\ref\RPGConsoleGame.dll
