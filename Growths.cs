@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace RPGConsoleGame
 {
-    internal class Growths
+    public class Growths
     {
         public int Defense { get; set; } = 0;
         public int Attack { get; set; } = 0;

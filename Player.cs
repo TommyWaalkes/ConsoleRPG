@@ -8,7 +8,7 @@ using RPGConsoleGame.Races;
 
 namespace RPGConsoleGame
 {
-    internal class Player
+    public class Player
     {
         public string Name { get; set; }
         public Race Race { get; set; }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tommy Waalkes\\Desktop\\RPGConsoleGame\\RPGConsoleGame\\RPGConsoleGame.csproj": {}
+    "C:\\Users\\thoma\\Desktop\\RPG Console Game\\ConsoleRPG\\RPGConsoleGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tommy Waalkes\\Desktop\\RPGConsoleGame\\RPGConsoleGame\\RPGConsoleGame.csproj": {
+    "C:\\Users\\thoma\\Desktop\\RPG Console Game\\ConsoleRPG\\RPGConsoleGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tommy Waalkes\\Desktop\\RPGConsoleGame\\RPGConsoleGame\\RPGConsoleGame.csproj",
+        "projectUniqueName": "C:\\Users\\thoma\\Desktop\\RPG Console Game\\ConsoleRPG\\RPGConsoleGame.csproj",
         "projectName": "RPGConsoleGame",
-        "projectPath": "C:\\Users\\Tommy Waalkes\\Desktop\\RPGConsoleGame\\RPGConsoleGame\\RPGConsoleGame.csproj",
-        "packagesPath": "C:\\Users\\Tommy Waalkes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tommy Waalkes\\Desktop\\RPGConsoleGame\\RPGConsoleGame\\obj\\",
+        "projectPath": "C:\\Users\\thoma\\Desktop\\RPG Console Game\\ConsoleRPG\\RPGConsoleGame.csproj",
+        "packagesPath": "C:\\Users\\thoma\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thoma\\Desktop\\RPG Console Game\\ConsoleRPG\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Tommy Waalkes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thoma\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

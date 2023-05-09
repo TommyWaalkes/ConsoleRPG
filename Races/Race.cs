@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPGConsoleGame.Races
 {
-    abstract class Race
+    public abstract class Race
     {
         public string Name { get; }
         public string Description { get; }

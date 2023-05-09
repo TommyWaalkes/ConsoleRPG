@@ -17,7 +17,7 @@ namespace RPGConsoleGame
         Acid, 
         Air
     }
-    internal class Attack
+    public class Attack
     {
         public string Name { get; set; }
         public DamageType damageType { get; set; }

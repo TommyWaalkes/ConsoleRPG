@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPGConsoleGame.Jobs
 {
-    abstract class Job
+    public abstract class Job
     {
         public string Name { get; }
         public string Description { get; }

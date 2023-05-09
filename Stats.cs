@@ -16,7 +16,7 @@ namespace RPGConsoleGame
         Intelligence, 
         Luck
     }
-    internal class Stats
+    public class Stats
     {
         public int Defense { get; set; } = 0; 
         public int Attack { get; set; } = 0;
