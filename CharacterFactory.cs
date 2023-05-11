@@ -16,6 +16,7 @@ namespace RPGConsoleGame
         public CharacterFactory()
         {
             Jobs.Add(new Fighter());
+            Jobs.Add(new Mage());
             Races.Add(new Human());
 
         }
@@ -37,8 +38,9 @@ namespace RPGConsoleGame
 
             Player p = new Player(j, r, name);
             p.Stats.Level = level;
-            Console.WriteLine("Go with this character? y/n");
+           
             p.PrintCharacterSheet();
+            Console.WriteLine("Go with this character? y/n");
             string response = "";
             while(response.Trim().ToLower() != "y" || response != "n")
             {

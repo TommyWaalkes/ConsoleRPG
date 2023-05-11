@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace RPGConsoleGame
 {
+    public enum BattleState
+    {
+        None,
+        Win, 
+        Loss, 
+        Draw
+    }
     internal class Battle
     {
         public Player Player { get; set; }
@@ -64,7 +71,7 @@ namespace RPGConsoleGame
             return a; 
         }
 
-        public void Round()
+        public BattleState Round()
         {
             Player first = DetermineFirst();
             Player second;
@@ -98,23 +105,27 @@ namespace RPGConsoleGame
 
                 }
 
-                Round();
+                
+            }
+            if (Player.IsAlive && Opponent.IsAlive)
+            {
+                return Round();
             }
             else if(!Player.IsAlive && !Opponent.IsAlive)
             {
-                Console.WriteLine("Draw both are dead!");
+                return BattleState.Draw;
             }
             else if(Player.IsAlive && !Opponent.IsAlive)
             {
-                Console.WriteLine("You Win!");
                 Console.WriteLine("You heal up to max and gain xp!");
                 int xpGain = Opponent.Stats.Level * Opponent.Stats.HpMax + 1;
                 Player.Stats.gainXp(xpGain, Player.Growths);
                 Player.Stats.HpCurrent = Player.Stats.HpMax;
+                return BattleState.Win;
             }
             else if(Opponent.IsAlive && !Player.IsAlive) { }
             {
-                Console.WriteLine("Your Opponent Wins!");
+                return BattleState.Loss;
             }
             
         }

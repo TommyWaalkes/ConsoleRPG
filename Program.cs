@@ -6,5 +6,6 @@ Player Player = cf.CreateByHand(1);
 //{
     Player enemy = cf.GenerateRandom(Player.Stats.Level);
     Battle b = new Battle(Player, enemy);
-    b.Round();
+   BattleState result =  b.Round();
+Console.WriteLine(result);
 //}

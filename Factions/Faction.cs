@@ -16,10 +16,12 @@ namespace RPGConsoleGame.Factions
         public Stats InitialStats { get; set; }
         public Growths InitialGrowths { get; set; }
 
-        public Faction(List<Job> allowedJobs, List<Race> allowedRaces)
+        public Faction(List<Job> allowedJobs, List<Race> allowedRaces, Stats InitialStats, Growths InitialGrowths)
         {
             AllowedJobs = allowedJobs;
             AllowedRaces = allowedRaces;
+            this.InitialGrowths = InitialGrowths; 
+            this.InitialStats = InitialStats;
         }
 
         public abstract void ApplyFactionFeatures(Player p);

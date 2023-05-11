@@ -10,8 +10,8 @@ namespace RPGConsoleGame.Races
     {
         public Human() : base("Human", "")
         {
-            SetStats(3, 3, 1, 20, 20, 10, 10, 10);
-            SetGrowths(2, 2, 2, 2, 2, 2, 2);
+            SetStats(1,1,1,4,1,1,1,1);
+            SetGrowths(1, 1, 1, 1, 1, 1, 1);
         }
     }
 }

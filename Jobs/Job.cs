@@ -12,11 +12,13 @@ namespace RPGConsoleGame.Jobs
         public string Description { get; }
         public Stats Stats { get; set; }
         public Growths Growths { get; set; }
+        public List<Attack> Attacks { get; set; } = new List<Attack>();
         public Job(string name, string description)
         {
             Description = description;
             Name = name;
         }
+
 
         public void SetStats(int defense, int attack, int damage, int hpMax, int hpCurrent, int speed, int intelligence, int luck)
         {

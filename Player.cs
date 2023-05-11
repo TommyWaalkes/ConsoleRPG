@@ -24,7 +24,7 @@ namespace RPGConsoleGame
             this.Race = Race;
             this.Stats = Stats.CombineStats(job.Stats, Race.Stats);
             this.Growths = Growths.CombineGrowths(job.Growths, Race.Growths);
-            Attacks.Add(new Attack("fist", DamageType.Blunt, 1, 3));
+            Attacks.AddRange(job.Attacks);
             Name = name;
         }
 
@@ -36,7 +36,7 @@ namespace RPGConsoleGame
         public int RollDamage(Attack a)
         {
             Random r = new Random();
-            int damage = r.Next(a.minDamage, a.maxDamage + 1);
+            int damage = r.Next(a.minDamage, a.maxDamage + 1) +1;
             if (Attack.IsPhysical(a))
             {
                 damage += Stats.Attack;
@@ -51,6 +51,11 @@ namespace RPGConsoleGame
 
         public void TakeDamage(int damage)
         {
+            damage -= Stats.Defense;
+            if (damage < 0)
+            {
+                damage = 1;
+            }
             Stats.HpCurrent -= damage;
         }
 
@@ -66,11 +71,11 @@ namespace RPGConsoleGame
                 Attack a = Attacks[i];
                 if (Attack.IsPhysical(a))
                 {
-                    Console.WriteLine($"{i}){a.Name} {a.damageType} : {a.minDamage}-{a.maxDamage} + {Stats.Attack}");
+                    Console.WriteLine($"{i}){a.Name} {a.damageType} : {a.minDamage+1}-{a.maxDamage + 1} + {Stats.Attack}");
                 }
                 else
                 {
-                    Console.WriteLine($"{i}){a.Name} {a.damageType} : {a.minDamage}-{a.maxDamage} + {Stats.Intelligence}");
+                    Console.WriteLine($"{i}){a.Name} {a.damageType} : {a.minDamage+1}-{a.maxDamage +1} + {Stats.Intelligence}");
                 }
             }
         }
