@@ -18,8 +18,7 @@ namespace RPGConsoleGame.Factions
 
         public override void ApplyFactionFeatures(Player p)
         {
-            p.Stats = Stats.CombineStats(InitialStats, p.Stats);
-            p.Growths = Growths.CombineGrowths(InitialGrowths, p.Growths);
+            
         }
     }
 }

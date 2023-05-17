@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RPGConsoleGame.Jobs;
 using RPGConsoleGame.Races;
+using RPGConsoleGame.Skills;
 
 namespace RPGConsoleGame
 {
@@ -16,6 +17,7 @@ namespace RPGConsoleGame
         public Stats Stats { get; set; }
         public Growths Growths { get; set; }
         public List<Attack> Attacks { get; set; } = new List<Attack>();
+        public List<Skill> Skills { get; set; } = new List<Skill>();
         public int Gold { get; set; } = 100;
         public bool IsAlive => Stats.HpCurrent > 0;
         public Player(Job job, Race Race, string name)

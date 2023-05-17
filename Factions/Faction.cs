@@ -24,6 +24,11 @@ namespace RPGConsoleGame.Factions
             this.InitialStats = InitialStats;
         }
 
-        public abstract void ApplyFactionFeatures(Player p);
+        public virtual  void ApplyFactionFeatures(Player p)
+        {
+            p.Stats = Stats.CombineStats(InitialStats, p.Stats);
+            p.Growths = Growths.CombineGrowths(InitialGrowths, p.Growths);
+
+        }
     }
 }
