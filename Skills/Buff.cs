@@ -23,26 +23,31 @@ namespace RPGConsoleGame.Skills
 
         public override void Effect(Player caster, params Player[] targets)
         {
+            
             foreach(Player p in targets)
             {
-                foreach(Stat stat in StatsAffected)
+                List<KeyValuePair<Stat, int>> statsToMod = new List<KeyValuePair<Stat, int>>();
+                foreach (Stat s in StatsAffected)
                 {
-                    switch(stat)
-                    {
-                        case Stat.Attack:
-                            p.Stats.Attack += GetBonusFormula(caster.Stats.Intelligence);
-                            break;
-                        case Stat.Defense:
-                            p.Stats.Defense += GetBonusFormula(caster.Stats.Intelligence);
-                            break;
-                    }
+                    int amount = GetBonusFormula(caster.Stats.Intelligence);
+                    KeyValuePair<Stat, int> kvp = new KeyValuePair<Stat, int>(s, amount);
+                    statsToMod.Add(kvp);
                 }
+                int duration = CalcDuration(caster);
+
+                Effect e = new Effect(duration, statsToMod.ToArray());
             }
         }
 
         public int GetBonusFormula(int casterStats)
         {
            return (Bonus + casterStats) * CastLevel + 1;
+        }
+
+        public virtual int CalcDuration(Player p)
+        {
+            double d = p.Stats.Intelligence % 10 + 1 + p.Stats.Level;
+            return int.Parse(Math.Ceiling(d).ToString());
         }
     }
 }

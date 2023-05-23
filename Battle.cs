@@ -57,7 +57,8 @@ namespace RPGConsoleGame
         public Attack PlayerPickAttack()
         {
             Player.PrintAttacks();
-            Console.WriteLine("Please select an attack: ");
+            
+            Console.WriteLine("Please select an attack or skill: ");
             int input = int.Parse(Console.ReadLine());
             Attack a = Player.Attacks[input];
             return a; 

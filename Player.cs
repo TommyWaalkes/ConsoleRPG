@@ -18,6 +18,7 @@ namespace RPGConsoleGame
         public Growths Growths { get; set; }
         public List<Attack> Attacks { get; set; } = new List<Attack>();
         public List<Skill> Skills { get; set; } = new List<Skill>();
+        public List<Effect> Effects { get; set; } = new List<Effect>();
         public int Gold { get; set; } = 100;
         public bool IsAlive => Stats.HpCurrent > 0;
         public Player(Job job, Race Race, string name)
@@ -59,6 +60,71 @@ namespace RPGConsoleGame
                 damage = 1;
             }
             Stats.HpCurrent -= damage;
+        }
+
+        public void AddEffect(Effect e)
+        {
+            e.ApplyEffect(this);
+            Effects.Add(e);
+        }
+
+        public void RemoveEffect(Effect e)
+        {
+            e.RemoveEffect(this);
+            Effects.Remove(e);
+        }
+        public void RemoveEffect(int index)
+        {
+            Effect e = Effects[index];
+            e.RemoveEffect(this);
+            Effects.RemoveAt(index);
+        }
+
+        public void EndTurn()
+        {
+            for(int i = 0; i < Effects.Count; i++)
+            {
+                Effect e = Effects[i];
+                e.DecrementDuration(); 
+                if(e.Duration <= 0) {
+                    RemoveEffect(i);
+                }
+            }
+        }
+
+        public void ModStats(Stat s, int amount)
+        {
+            switch (s)
+            {
+                case Stat.Attack: 
+                    Stats.Attack += amount;
+                    break;
+                case Stat.Defense:
+                    Stats.Defense += amount; 
+                    break;
+                case Stat.Intelligence:
+                    Stats.Intelligence += amount;
+                    break;
+                case Stat.
+                    Speed: Stats.Speed += amount; 
+                    break;
+                case Stat.Luck: 
+                    Stats.Luck += amount; 
+                    break;
+                case Stat.Hp: 
+                    Stats.HpCurrent+= amount;
+                    Stats.HpMax += amount;
+                    break;
+
+            }
+        }
+
+        public void DecrementDuration()
+        {
+            foreach (Effect e in Effects)
+            {
+
+            }
         }
 
         public Attack SelectAttack(int index)

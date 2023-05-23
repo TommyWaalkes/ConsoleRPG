@@ -8,9 +8,14 @@ namespace RPGConsoleGame.Skills
 {
     public abstract class Skill
     {
+        string Name;
+        string Description;
         public List<Stat> StatsUsed = new List<Stat>();
-
         public int Magnitude { get; set; } = 1;
+
+        public Skill(string Name, string Description) { 
+        
+        }
 
 
 
