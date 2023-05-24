@@ -134,7 +134,8 @@ namespace RPGConsoleGame
 
         public void PrintAttacks()
         {
-            for (int i = 0; i < Attacks.Count; i++)
+            int i = 0; 
+            for (; i < Attacks.Count; i++)
             {
                 Attack a = Attacks[i];
                 if (Attack.IsPhysical(a))
@@ -145,6 +146,16 @@ namespace RPGConsoleGame
                 {
                     Console.WriteLine($"{i}){a.Name} {a.damageType} : {a.minDamage+1}-{a.maxDamage +1} + {Stats.Intelligence}");
                 }
+            }
+        }
+
+        public void PrintSkills()
+        {
+            for (int i = 0; i < Skills.Count; i++)
+            {
+                Skill s = Skills[i];
+                Console.WriteLine($"{i}:{s.Name}");
+                i++;
             }
         }
 

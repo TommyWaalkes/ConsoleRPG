@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPGConsoleGame.Skills;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,14 +55,56 @@ namespace RPGConsoleGame
             }
         }
 
+        public string SelectSkillOrAttack()
+        {
+            Console.WriteLine("Would you like to (1) attack or (2) use a skill?");
+            string input = Console.ReadLine().ToLower();
+            if(input == "1" || input == "attack")
+            {
+                return "attack";
+            }
+            else if(input == "2"|| input == "skill")
+            {
+                return "skill";
+            }
+            else
+            {
+                Console.WriteLine("Im sorry I didnt understand lets try again");
+                return SelectSkillOrAttack();
+            }
+        }
+
         public Attack PlayerPickAttack()
         {
             Player.PrintAttacks();
-            
+
             Console.WriteLine("Please select an attack or skill: ");
             int input = int.Parse(Console.ReadLine());
-            Attack a = Player.Attacks[input];
-            return a; 
+            if (input >= 0 && input < Player.Attacks.Count) { 
+                return Player.Attacks[input];
+            }
+            else
+            {
+                Console.WriteLine("Sorry that was not a valid input, please try again");
+                return PlayerPickAttack();
+            }
+        
+        }
+
+        public Skill PlayerPickSkill()
+        {
+            
+            Console.WriteLine("Please select a skill: ");
+            int input = int.Parse(Console.ReadLine()); 
+            if(input >=0 && input <Player.Skills.Count)
+            {
+                return Player.Skills[input];
+            }
+            else
+            {
+                Console.WriteLine("Invalid input lets try again");
+                return PlayerPickSkill();
+            }
         }
 
         public Attack RandomPickAttack()
