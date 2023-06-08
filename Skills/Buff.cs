@@ -13,7 +13,7 @@ namespace RPGConsoleGame.Skills
         public int CastLevel { get; set; } = 1;
         public List<Stat> StatsAffected { get; set; } = new List<Stat>();
 
-        public Buff(int Duration, int Bonus,  int CastLevel, params Stat[] StatsAffected)
+        public Buff(string Name, string Description, int Duration, int Bonus,  int CastLevel, params Stat[] StatsAffected) : base(Name, Description)
         {
             this.Duration = Duration;
             this.Bonus = Bonus;

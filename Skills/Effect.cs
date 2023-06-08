@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +10,14 @@ namespace RPGConsoleGame.Skills
 {
     public class Effect
     {
-        public int Duration { get; set; } = 1; 
+        [Key]
+        public int Id { get; set; }
+        public int Duration { get; set; } = 1;
+        [NotMapped]
         public Dictionary<Stat, int> statsToAmount { get; set; } = new Dictionary<Stat, int>();
         public bool Active => Duration > 0;
+        //This is to make entity happy
+        public Effect() { }
 
         public Effect(int duration, params KeyValuePair<Stat, int>[] statsToAmount)
         {

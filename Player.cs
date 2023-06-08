@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,25 @@ namespace RPGConsoleGame
 {
     public class Player
     {
+        //Tables 
+        //Player 
+        //Stats One to one w/player 
+        //Growths One to one w/player
+        //Skills Many to Many w/player
+        //Attacks Many to Many w/player
+        //Attacks and Skills to effect many to many
+        //Effects - Many to Many  <-- run through and activate all effects on load
+        //Stats Many to Many with Job, Class, and faction, and player each separate tables
+
+        [Key]
+        public int Id { get; set; }
         public string Name { get; set; }
         public Race Race { get; set; }
         public Job Job { get; set; }
+
+        //Combine all stats into one and store that
         public Stats Stats { get; set; }
+        //Same deal with growths
         public Growths Growths { get; set; }
         public List<Attack> Attacks { get; set; } = new List<Attack>();
         public List<Skill> Skills { get; set; } = new List<Skill>();
@@ -29,6 +45,12 @@ namespace RPGConsoleGame
             this.Growths = Growths.CombineGrowths(job.Growths, Race.Growths);
             Attacks.AddRange(job.Attacks);
             Name = name;
+        }
+
+        //Putting in an empty one for entity
+        public Player()
+        {
+
         }
 
         public void AddAttack(Attack newArrack)
