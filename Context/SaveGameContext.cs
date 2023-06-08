@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace RPGConsoleGame.Context
 {
@@ -29,6 +30,21 @@ namespace RPGConsoleGame.Context
             {
                 optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=RPGConsoleGame;Trusted_Connection=True;TrustServerCertificate=True");
             }
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<HealSkill>();
+            builder.Entity<Buff>();
+            builder.Entity<NobleEmpire>();
+            builder.Entity<Mage>();
+            builder.Entity<Fighter>();
+            builder.Entity<Human>();
+
+            base.OnModelCreating(builder);
+            // Customize the ASP.NET Identity model and override the defaults if needed.
+            // For example, you can rename the ASP.NET Identity table names and more.
+            // Add your customizations after calling base.OnModelCreating(builder);
         }
 
     }

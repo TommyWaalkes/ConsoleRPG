@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,8 @@ namespace RPGConsoleGame
 {
     public class Growths
     {
+        [Key]
+        public int Id { get; set; }
         public int Defense { get; set; } = 0;
         public int Attack { get; set; } = 0;
         public int Damage { get; set; } = 1;

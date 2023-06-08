@@ -15,6 +15,7 @@ namespace RPGConsoleGame.Factions
             new Growths(1,1,1,3,0,0,0))
         {
         }
+        public NobleEmpire() { }
 
         public override void ApplyFactionFeatures(Player p)
         {

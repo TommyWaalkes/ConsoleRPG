@@ -2,6 +2,7 @@
 using RPGConsoleGame.Races;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,16 @@ namespace RPGConsoleGame.Factions
 {
     public abstract class Faction
     {
+        [Key]
+        public int Id { get; set; }
         public List<Job> AllowedJobs { get; set; }
         public List<Race> AllowedRaces { get; set; }
 
         public Stats InitialStats { get; set; }
         public Growths InitialGrowths { get; set; }
+
+        //This is to make entity happy 
+        public Faction() { }
 
         public Faction(List<Job> allowedJobs, List<Race> allowedRaces, Stats InitialStats, Growths InitialGrowths)
         {

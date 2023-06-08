@@ -9,7 +9,7 @@ namespace RPGConsoleGame.Skills
     public class HealSkill : Skill
     {
         public HealSkill(string Name, string Description) : base(Name, Description) { }
-
+        public HealSkill() { }
         public override void Effect(Player caster, params Player[] targets)
         {
             foreach (Player p in targets)

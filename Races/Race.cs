@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,8 @@ namespace RPGConsoleGame.Races
 {
     public abstract class Race
     {
+        [Key]
+        public int Id { get; set; }
         public string Name { get; }
         public string Description { get; }
         public Growths Growths { get; set; }
@@ -17,6 +20,7 @@ namespace RPGConsoleGame.Races
             this.Name = Name;
             this.Description = Description;
         }
+        public Race() { }
 
         public void SetStats(int defense, int attack, int damage, int hpMax, int hpCurrent, int speed, int intelligence, int luck)
         {

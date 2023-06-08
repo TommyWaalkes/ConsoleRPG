@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace RPGConsoleGame.Skills
         public int Duration { get; set; } = 1;
         public int Bonus { get; set; } = 1; 
         public int CastLevel { get; set; } = 1;
+        [NotMapped]
         public List<Stat> StatsAffected { get; set; } = new List<Stat>();
 
         public Buff(string Name, string Description, int Duration, int Bonus,  int CastLevel, params Stat[] StatsAffected) : base(Name, Description)
@@ -20,6 +22,7 @@ namespace RPGConsoleGame.Skills
             this.StatsAffected = StatsAffected.ToList();
             this.CastLevel = CastLevel;
         }
+        public Buff() { }
 
         public override void Effect(Player caster, params Player[] targets)
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,8 @@ namespace RPGConsoleGame
     }
     public class Attack
     {
+        [Key]
+        public int Id { get; set; }
         public string Name { get; set; }
         public DamageType damageType { get; set; }
 
@@ -32,6 +35,8 @@ namespace RPGConsoleGame
             this.minDamage = minDamage;
             this.maxDamage = maxDamage;
         }
+
+        public Attack() { }
 
         public static bool IsPhysical(Attack a)
         {
