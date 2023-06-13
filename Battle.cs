@@ -1,4 +1,5 @@
-﻿using RPGConsoleGame.Skills;
+﻿using RPGConsoleGame.SaveGame;
+using RPGConsoleGame.Skills;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace RPGConsoleGame
         {
             Player = player;
             Opponent = opponent;
+          
         }
 
         public Player DetermineFirst()

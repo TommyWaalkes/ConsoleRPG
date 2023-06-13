@@ -6,6 +6,7 @@ using RPGConsoleGame.Skills;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
@@ -32,6 +33,8 @@ namespace RPGConsoleGame.Context
             }
         }
 
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<HealSkill>();
@@ -41,6 +44,8 @@ namespace RPGConsoleGame.Context
             builder.Entity<Fighter>();
             builder.Entity<Human>();
 
+            
+                  
             base.OnModelCreating(builder);
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.

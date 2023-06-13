@@ -11,9 +11,9 @@ namespace RPGConsoleGame.OverlapModels
 {
     internal class PlayerJob
     {
-        [Key]
-        public int Id { get; set; }
-        public virtual Player Player { get; set; }
-        public virtual Job Job { get; set; } 
+        //[Key]
+        //public int Id { get; set; }
+        //public virtual Player Player { get; set; }
+        //public virtual Job Job { get; set; } 
     }
 }

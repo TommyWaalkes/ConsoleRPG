@@ -1,5 +1,6 @@
 ﻿using RPGConsoleGame.Jobs;
 using RPGConsoleGame.Races;
+using RPGConsoleGame.SaveGame;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,43 @@ namespace RPGConsoleGame
             Jobs.Add(new Mage());
             Races.Add(new Human());
 
+        }
+
+        public Player DecidePlayerCreation()
+        {
+            Console.WriteLine("Would you like load a saved character or make a new one or make a random characer? load/new/random");
+            string response = Console.ReadLine().ToLower();
+            if(response == "load")
+            {
+                return LoadPlayer();
+            }
+            else if(response == "new")
+            {
+                return CreateByHand(1);
+            }
+            else if(response == "random")
+            {
+                return GenerateRandom(1);
+            }
+            else
+            {
+                Console.WriteLine("I'm sorry I didn't understand lets try again");
+                return DecidePlayerCreation();
+            }
+        }
+
+        public Player LoadPlayer()
+        {
+            string[] names = SaveFunctions.GetPlayerNames();
+            for(int i = 0; i < names.Length; i++)
+            {
+                string name = names[i];
+                Console.WriteLine(i +": " + name);
+            }
+            Console.WriteLine("Which player would you like to load?");
+            int pick = int.Parse(Console.ReadLine());
+
+            return SaveFunctions.LoadPlayer(names[pick]);
         }
         public  Player CreateByHand(int level)
         {
@@ -52,14 +90,18 @@ namespace RPGConsoleGame
             }
 
             if(response == "y" ) {
+                Console.WriteLine("Saving new player");
+                SaveFunctions.SavePlayer(p);
+                Console.WriteLine(p.Name + " saved sucessfully");
                 return p;
+
             }
             else
             {
                 return CreateByHand(1);
             }
 
-            
+           
         }
 
         public  Player GenerateRandom(int level)

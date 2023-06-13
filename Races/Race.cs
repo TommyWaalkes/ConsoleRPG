@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RPGConsoleGame.Races
 {
-    public abstract class Race
+    public class Race
     {
         [Key]
         public int Id { get; set; }

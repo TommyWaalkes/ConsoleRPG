@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RPGConsoleGame.Jobs
 {
-    public abstract class Job
+    public class Job
     {
         [Key]
         public int Id { get; set; }
@@ -15,6 +16,7 @@ namespace RPGConsoleGame.Jobs
         public string Description { get; }
         public Stats Stats { get; set; }
         public Growths Growths { get; set; }
+        [NotMapped]
         public List<Attack> Attacks { get; set; } = new List<Attack>();
         public Job(string name, string description)
         {

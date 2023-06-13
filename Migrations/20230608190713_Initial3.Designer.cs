@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RPGConsoleGame.Context;
 
@@ -11,9 +12,11 @@ using RPGConsoleGame.Context;
 namespace RPGConsoleGame.Migrations
 {
     [DbContext(typeof(SaveGameContext))]
-    partial class SaveGameContextModelSnapshot : ModelSnapshot
+    [Migration("20230608190713_Initial3")]
+    partial class Initial3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,6 +32,9 @@ namespace RPGConsoleGame.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("JobId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -47,6 +53,8 @@ namespace RPGConsoleGame.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("JobId");
 
                     b.HasIndex("PlayerId");
 
@@ -168,7 +176,7 @@ namespace RPGConsoleGame.Migrations
                     b.Property<int>("GrowthsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("JobId")
+                    b.Property<int?>("JobId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -384,6 +392,10 @@ namespace RPGConsoleGame.Migrations
 
             modelBuilder.Entity("RPGConsoleGame.Attack", b =>
                 {
+                    b.HasOne("RPGConsoleGame.Jobs.Job", null)
+                        .WithMany("Attacks")
+                        .HasForeignKey("JobId");
+
                     b.HasOne("RPGConsoleGame.Player", null)
                         .WithMany("Attacks")
                         .HasForeignKey("PlayerId");
@@ -441,9 +453,7 @@ namespace RPGConsoleGame.Migrations
 
                     b.HasOne("RPGConsoleGame.Jobs.Job", "Job")
                         .WithMany()
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("JobId");
 
                     b.HasOne("RPGConsoleGame.Races.Race", "Race")
                         .WithMany()
@@ -508,6 +518,11 @@ namespace RPGConsoleGame.Migrations
                     b.Navigation("AllowedJobs");
 
                     b.Navigation("AllowedRaces");
+                });
+
+            modelBuilder.Entity("RPGConsoleGame.Jobs.Job", b =>
+                {
+                    b.Navigation("Attacks");
                 });
 
             modelBuilder.Entity("RPGConsoleGame.Player", b =>
