@@ -131,7 +131,15 @@ namespace RPGConsoleGame
                     second = Opponent;
                     Attack a = PlayerPickAttack();
                     int damage = first.RollDamage(a);
-                    second.TakeDamage(damage);
+                    damage = first.ApplyCrits(damage);
+                    if (!second.Dodge())
+                    {
+                        second.TakeDamage(damage);
+                    }
+                    else
+                    {
+                        Console.WriteLine(second.Name +" dodged");
+                    }
 
                     Attack b = RandomPickAttack();
                     int ODamage = second.RollDamage(b);

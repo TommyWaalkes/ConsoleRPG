@@ -34,7 +34,7 @@ namespace RPGConsoleGame
         public int Level { get; set; } = 1;
         public int Xp { get; set; } = 0;
         public int XpNext => Level * 100;
-        private bool _canLevel => Xp >= XpNext;
+        public bool _canLevel => Xp >= XpNext;
 
         public Stats() {
             HpCurrent = HpMax;

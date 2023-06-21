@@ -11,7 +11,7 @@ namespace RPGConsoleGame.Skills
     {
         public int Duration { get; set; } = 1;
         public int Bonus { get; set; } = 1; 
-        public int CastLevel { get; set; } = 1;
+      
         [NotMapped]
         public List<Stat> StatsAffected { get; set; } = new List<Stat>();
 

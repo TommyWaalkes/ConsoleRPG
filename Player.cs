@@ -39,6 +39,8 @@ namespace RPGConsoleGame
         public List<Effect> Effects { get; set; } = new List<Effect>();
         public int Gold { get; set; } = 100;
         public bool IsAlive => Stats.HpCurrent > 0;
+        public int CritRange => 40 - Stats.Luck;
+        public int CritMultipler => 2 + (Stats.Luck / 10);
         public Player(Job job, Race Race, string name)
         {
             this.Job = job;
@@ -47,6 +49,11 @@ namespace RPGConsoleGame
             this.Growths = Growths.CombineGrowths(job.Growths, Race.Growths);
             Attacks.AddRange(job.Attacks);
             Name = name;
+            for (int i = 0; i < job.Skills.Count; i++){
+                Skill s = Skills[i];
+                s.CastLevel = this.Stats.Level;
+                Skills.Add(s);
+            }
         }
 
         //Putting in an empty one for entity
@@ -58,6 +65,31 @@ namespace RPGConsoleGame
         public void AddAttack(Attack newArrack)
         {
             Attacks.Add(newArrack);
+        }
+
+        public bool Dodge()
+        {
+            int luck = Stats.Luck;
+            Random r = new Random();
+            int roll = r.Next(1,101) + Stats.Defense/2;
+            return luck >= roll;
+        }
+
+        public int ApplyCrits(int damage)
+        {
+            int luck = Stats.Luck; 
+            Random r = new Random();
+            int roll = r.Next(1, 41); 
+            if(roll>= CritRange)
+            {
+                Console.WriteLine("CRITICAL HIT!!!");
+                return damage * CritMultipler;
+            }
+            else
+            {
+                return damage;
+            }
+            
         }
 
         public int RollDamage(Attack a)

@@ -15,7 +15,7 @@ namespace RPGConsoleGame.Skills
         public string Description { get; set; }
         public List<Stat> StatsUsed = new List<Stat>();
         public int Magnitude { get; set; } = 1;
-
+        public int CastLevel { get; set; } = 1;
         public Skill(string Name, string Description) {
             this.Name = Name;
             this.Description = Description;

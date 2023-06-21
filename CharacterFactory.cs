@@ -18,6 +18,7 @@ namespace RPGConsoleGame
         {
             Jobs.Add(new Fighter());
             Jobs.Add(new Mage());
+            Jobs.Add(new Barbarian());
             Races.Add(new Human());
 
         }

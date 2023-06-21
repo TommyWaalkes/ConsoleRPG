@@ -42,5 +42,34 @@ namespace RPGConsoleGame
         {
             return a.damageType == DamageType.Blunt || a.damageType == DamageType.Slashing || a.damageType == DamageType.Piercing;
         }
+
+        public static Attack GenerateRandom(int level)
+        {
+            DamageType[] damageTypes = (DamageType[])Enum.GetValues(typeof(DamageType));
+            Random r = new Random();
+            int roll = r.Next(0, damageTypes.Length);
+            DamageType dt = damageTypes[roll];
+            int min = 1 + level * r.Next(1, 5);
+            int max = min + level* r.Next(1, 5);
+            string name = "";
+            switch (dt)
+            {
+                case DamageType.Blunt:
+                    name = "club";
+                    break;
+                case DamageType.Slashing:
+                    name = "sword";
+                    break; 
+                case DamageType.Piercing:
+                    name = "spear";
+                    break;
+            }
+
+            Attack a = new Attack(name, dt, min, max);
+            return a; 
+            
+        }
+
+
     }
 }

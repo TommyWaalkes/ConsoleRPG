@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPGConsoleGame.Skills;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RPGConsoleGame.Jobs
 {
-    public class Job
+    public class Job    
     {
         [Key]
         public int Id { get; set; }
@@ -18,6 +19,7 @@ namespace RPGConsoleGame.Jobs
         public Growths Growths { get; set; }
         [NotMapped]
         public List<Attack> Attacks { get; set; } = new List<Attack>();
+        public List<Skill> Skills { get; set; } = new List<Skill>();
         public Job(string name, string description)
         {
             Description = description;
@@ -34,6 +36,25 @@ namespace RPGConsoleGame.Jobs
         public void SetGrowths(int defense, int attack, int damage, int hp, int speed, int intelligence, int luck)
         {
             Growths = new Growths(defense, attack, damage, hp, speed, intelligence, luck);
+        }
+
+        public virtual void ApplyLevelUp(Player p, int level)
+        {
+        }
+
+        public string GetUserInput(string message, List<string> allowedResponses)
+        {
+            Console.WriteLine(message);
+            string input = Console.ReadLine();
+
+            if (allowedResponses.Contains(input))
+            {
+                return input;
+            }
+            else
+            {
+                return GetUserInput(message, allowedResponses);
+            }
         }
     }
 
