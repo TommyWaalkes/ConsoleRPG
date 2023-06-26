@@ -49,10 +49,14 @@ namespace RPGConsoleGame
             this.Growths = Growths.CombineGrowths(job.Growths, Race.Growths);
             Attacks.AddRange(job.Attacks);
             Name = name;
-            for (int i = 0; i < job.Skills.Count; i++){
-                Skill s = Skills[i];
-                s.CastLevel = this.Stats.Level;
-                Skills.Add(s);
+            if (job.Skills.Count > 0)
+            {
+                for (int i = 0; i < job.Skills.Count; i++)
+                {
+                    Skill s = Skills[i];
+                    s.CastLevel = this.Stats.Level;
+                    Skills.Add(s);
+                }
             }
         }
 

@@ -77,6 +77,8 @@ namespace RPGConsoleGame
                 Luck += g.Luck;
                 Intelligence+= g.Intelligence;
             }
+
+            PrintStats();
         }
 
         public static Stats CombineStats(params Stats[] stats)
@@ -100,6 +102,7 @@ namespace RPGConsoleGame
         public void PrintStats()
         {
             Console.WriteLine("Stats:");
+            Console.WriteLine($"Level: {Level}");
             Console.WriteLine($"Attack: {Attack}");
             Console.WriteLine($"Defense: {Defense}");
             Console.WriteLine($"Hp: {HpCurrent}/{HpMax}");

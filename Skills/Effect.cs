@@ -13,6 +13,7 @@ namespace RPGConsoleGame.Skills
         [Key]
         public int Id { get; set; }
         public int Duration { get; set; } = 1;
+        public bool IsPermanet { get; set; } = false; 
         [NotMapped]
         public Dictionary<Stat, int> statsToAmount { get; set; } = new Dictionary<Stat, int>();
         public bool Active => Duration > 0;
@@ -30,7 +31,10 @@ namespace RPGConsoleGame.Skills
 
         public virtual void DecrementDuration()
         {
-            Duration--;
+            if (IsPermanet == false)
+            {
+                Duration--;
+            }
         }
 
         public virtual void ApplyEffect(params Player[] targets)

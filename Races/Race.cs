@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPGConsoleGame.Skills;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace RPGConsoleGame.Races
         public string Description { get; }
         public Growths Growths { get; set; }
         public Stats Stats { get; set; }
+
+        public List<Effect> passives { get; set; } = new List<Effect>();
         public Race(string Name, string Description)
         {
             this.Name = Name;
@@ -30,6 +33,14 @@ namespace RPGConsoleGame.Races
         public void SetGrowths(int defense, int attack, int damage, int hp, int speed, int intelligence, int luck)
         {
             Growths = new Growths(defense, attack, damage, hp, speed, intelligence, luck);
+        }
+
+        public void ApplyPassives(Player p)
+        {
+            foreach(Effect e in passives)
+            {
+                e.ApplyEffect(p);
+            }
         }
 
     }

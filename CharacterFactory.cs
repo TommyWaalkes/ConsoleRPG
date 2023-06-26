@@ -19,31 +19,52 @@ namespace RPGConsoleGame
             Jobs.Add(new Fighter());
             Jobs.Add(new Mage());
             Jobs.Add(new Barbarian());
+            Jobs.Add(new Cleric());
             Races.Add(new Human());
 
         }
 
-        public Player DecidePlayerCreation()
+        public Player DecidePlayerCreation(int level)
         {
             Console.WriteLine("Would you like load a saved character or make a new one or make a random characer? load/new/random");
             string response = Console.ReadLine().ToLower();
+            Player p; 
             if(response == "load")
             {
-                return LoadPlayer();
+                p = LoadPlayer();
             }
             else if(response == "new")
             {
-                return CreateByHand(1);
+                p =  CreateByHand(level);
+                List<Attack> startingAttacks = new List<Attack>();
+                startingAttacks.Add(Attack.GenerateRandom(level));
+                startingAttacks.Add(Attack.GenerateRandom(level));
+                startingAttacks.Add(Attack.GenerateRandom(level));
+                Console.WriteLine("Select a random starting weapon");
+                for (int i = 0; i < startingAttacks.Count; i++)
+                {
+                    Attack attack = startingAttacks[i];
+                    Console.WriteLine($"{i}: Damage:{attack.minDamage}-{attack.maxDamage}, Type:{attack.damageType} ");
+                }
+
+                int pick = int.Parse(Console.ReadLine());
+
+                Attack picked = startingAttacks[pick];
+                p.AddAttack(picked);
             }
             else if(response == "random")
             {
-                return GenerateRandom(1);
+                p = GenerateRandom(level);
+                p.AddAttack(Attack.GenerateRandom(level));
             }
             else
             {
                 Console.WriteLine("I'm sorry I didn't understand lets try again");
-                return DecidePlayerCreation();
+                p = DecidePlayerCreation(level);
             }
+
+
+            return p;
         }
 
         public Player LoadPlayer()

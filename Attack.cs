@@ -28,7 +28,7 @@ namespace RPGConsoleGame
         public int minDamage { get; set; } = 1;
         public int maxDamage { get; set; } = 3;
 
-        public Attack(String Name, DamageType damageType, int minDamage, int maxDamage)
+        public Attack(string Name, DamageType damageType, int minDamage, int maxDamage)
         {
             this.Name = Name;
             this.damageType = damageType;
@@ -63,8 +63,23 @@ namespace RPGConsoleGame
                 case DamageType.Piercing:
                     name = "spear";
                     break;
+                case DamageType.Fire:
+                    name = "fireball";
+                    break;
+                case DamageType.Ice:
+                    name = "cold beam";
+                    break;
+                case DamageType.Air:
+                    name = "lighting Bolt";
+                    break;
+                case DamageType.Acid:
+                    name= "Acid Arrow";
+                    break;
+                case DamageType.Magic:
+                    name = "Magic Bolt";
+                    break;
             }
-
+            name += " +" + level;
             Attack a = new Attack(name, dt, min, max);
             return a; 
             
