@@ -11,7 +11,8 @@ namespace RPGConsoleGame
     {
         Attack,
         Damage,
-        Hp, 
+        Hp,
+        HpMax,
         Defense,
         Speed,
         Intelligence, 
@@ -97,6 +98,23 @@ namespace RPGConsoleGame
             }
 
             return output;
+        }
+
+        public int GetStat(Stat stat)
+        {
+            switch (stat)
+            {
+                case Stat.Attack:return Attack;
+                case Stat.Defense: return Defense;
+                case Stat.Speed: return Speed;
+                case Stat.Luck: return Luck;
+                case Stat.Damage: return Damage;
+                case Stat.Hp: return HpCurrent;
+                case Stat.HpMax: return HpMax;
+                case Stat.Intelligence:return Intelligence;
+                //Means no stat found
+                default: return -1;
+            }
         }
 
         public void PrintStats()
