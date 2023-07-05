@@ -3,6 +3,7 @@ using RPGConsoleGame.Races;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,7 +22,11 @@ namespace RPGConsoleGame.Encounter
         public int LevelRequired { get; set; } = 0; 
         public string Message { get; set; }
 
-        public Choice( List<Job> allowedJobs, List<Race> allowedRaces, int levelRequired, string message)
+        public Choice(string Message)
+        {
+            this.Message = Message;
+        }
+        public Choice(string message,[Optional]List<Job> allowedJobs, [Optional] List<Race> allowedRaces, [Optional] int levelRequired)
         {
             this.allowedJobs = allowedJobs;
             this.allowedRaces = allowedRaces;

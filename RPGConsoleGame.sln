@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGConsoleGame", "RPGConsoleGame.csproj", "{EB740907-56F2-4110-B1FF-5A37175F3158}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raylib CS Template", "..\..\Raylib-CS-Template-master\Raylib CS Template\Raylib CS Template.csproj", "{5224D071-431E-4F2B-8E8C-10A8DE89CF81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EB740907-56F2-4110-B1FF-5A37175F3158}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB740907-56F2-4110-B1FF-5A37175F3158}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB740907-56F2-4110-B1FF-5A37175F3158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5224D071-431E-4F2B-8E8C-10A8DE89CF81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5224D071-431E-4F2B-8E8C-10A8DE89CF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5224D071-431E-4F2B-8E8C-10A8DE89CF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5224D071-431E-4F2B-8E8C-10A8DE89CF81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

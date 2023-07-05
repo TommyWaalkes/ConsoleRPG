@@ -13,10 +13,10 @@ namespace RPGConsoleGame.Encounter
 
         public List<Choice> Choices { get; set; } = new List<Choice>();
 
-        public Encounter(string Name, string Message, List<Choice> Choices, Player p) { 
+        public Encounter(string Name, string Message, Player p, params Choice[] Choices) { 
             this.Name= Name;
             this.Message= Message;
-            this.Choices = Choices;
+            this.Choices = Choices.ToList();
             foreach(Choice c in Choices)
             {
                 c.SetCanPick(p);
